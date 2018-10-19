@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour {
     public static Spawner Instance = null;
     public GameObject[] Obstacles;
     public int MaxObjectsOnScreen;
+    public int Ball = 0;
     public float Frequency;
     public Vector3 StartPOS;
     public float ObstacleSpeed;
