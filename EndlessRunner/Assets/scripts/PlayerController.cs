@@ -9,12 +9,14 @@ public class PlayerController : MonoBehaviour {
     Rigidbody2D rb;
     [SerializeField]bool grounded = true;
     public float JumpHeight;
+    public bool isAlive;
     
 
 	void Start () {
 
         //Getting and initializing starting variables
         rb = GetComponent<Rigidbody2D>();
+        isAlive = true;
 	}
 	
 	// Update is called once per frame
@@ -40,6 +42,27 @@ public class PlayerController : MonoBehaviour {
     private void OnBecameInvisible()
     {
         // I CAN'T BE SEEN. (show game over screen, which includes button to start over)
-        SceneManager.LoadScene("LossScene");
+        isAlive = false;
+
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Pickup"))
+        {
+            other.gameObject.SetActive(false);
+            rb.AddForce(new Vector2(0, JumpHeight * 1.2f), ForceMode2D.Impulse);
+        }
+       
+    }
+   
+    public void IsDead()
+    {
+        if (isAlive == false)
+        {
+
+            SceneManager.LoadScene("LossScene");
+        }
+    }
+        
+
 }

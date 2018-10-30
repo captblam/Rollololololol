@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ButtClick : MonoBehaviour {
 
-	
+	//loads the game scene
 	public void IGotFuckinClickedBitch()
     {
         SceneManager.LoadScene("Game");
     }
+   
 }

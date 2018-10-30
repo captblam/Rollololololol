@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SpeedGetter : MonoBehaviour {
 
-    public Text text;
+    public Text Speed;
     public GameObject player;
     private Rigidbody2D rb;
 
@@ -18,6 +18,6 @@ public class SpeedGetter : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        text.text = "Current Speed: " + rb.velocity + " km/h";
+        Speed.text = "Current Speed: " + rb.velocity + " km/h";
 	}
 }
